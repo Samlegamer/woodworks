@@ -1,0 +1,155 @@
+{
+  "block.bamboo_wood_chiseled_bookshelf.break": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break1",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break2",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break3",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break4",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break5",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break6"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.bamboo_wood_chiseled_bookshelf.fall": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step1",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step2",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step3",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step4",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step5"
+    ]
+  },
+  "block.bamboo_wood_chiseled_bookshelf.hit": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step1",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step2",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step3",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step4",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.bamboo_wood_chiseled_bookshelf.place": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break1",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break2",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break3",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break4",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break5",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/break6"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.bamboo_wood_chiseled_bookshelf.step": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step1",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step2",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step3",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step4",
+      "woodworks:block/bamboo_wood_chiseled_bookshelf/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.cherry_wood_chiseled_bookshelf.break": {
+    "sounds": [
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break1",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break2",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break3",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break4",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break5",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break6"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.cherry_wood_chiseled_bookshelf.fall": {
+    "sounds": [
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step1",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step2",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step3",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step4",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step5"
+    ]
+  },
+  "block.cherry_wood_chiseled_bookshelf.hit": {
+    "sounds": [
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step1",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step2",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step3",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step4",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.cherry_wood_chiseled_bookshelf.place": {
+    "sounds": [
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break1",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break2",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break3",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break4",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break5",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/break6"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.cherry_wood_chiseled_bookshelf.step": {
+    "sounds": [
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step1",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step2",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step3",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step4",
+      "woodworks:block/cherry_wood_chiseled_bookshelf/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.nether_wood_chiseled_bookshelf.break": {
+    "sounds": [
+      "woodworks:block/nether_wood_chiseled_bookshelf/break1",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break2",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break3",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break4",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break5",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break6"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.nether_wood_chiseled_bookshelf.fall": {
+    "sounds": [
+      "woodworks:block/nether_wood_chiseled_bookshelf/step1",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step2",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step3",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step4",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step5"
+    ]
+  },
+  "block.nether_wood_chiseled_bookshelf.hit": {
+    "sounds": [
+      "woodworks:block/nether_wood_chiseled_bookshelf/step1",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step2",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step3",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step4",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.nether_wood_chiseled_bookshelf.place": {
+    "sounds": [
+      "woodworks:block/nether_wood_chiseled_bookshelf/break1",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break2",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break3",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break4",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break5",
+      "woodworks:block/nether_wood_chiseled_bookshelf/break6"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.nether_wood_chiseled_bookshelf.step": {
+    "sounds": [
+      "woodworks:block/nether_wood_chiseled_bookshelf/step1",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step2",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step3",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step4",
+      "woodworks:block/nether_wood_chiseled_bookshelf/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  }
+}

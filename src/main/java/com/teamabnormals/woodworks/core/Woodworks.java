@@ -6,6 +6,7 @@ import com.teamabnormals.woodworks.client.renderer.block.DrawerBlockEntityRender
 import com.teamabnormals.woodworks.client.splashes.ClayworksSplash;
 import com.teamabnormals.woodworks.core.data.client.WoodworksBlockStateProvider;
 import com.teamabnormals.woodworks.core.data.client.WoodworksLanguageProvider;
+import com.teamabnormals.woodworks.core.data.client.WoodworksSoundDefinitionsProvider;
 import com.teamabnormals.woodworks.core.data.client.WoodworksSplashProvider;
 import com.teamabnormals.woodworks.core.data.server.WoodworksDatapackBuiltinEntriesProvider;
 import com.teamabnormals.woodworks.core.data.server.WoodworksLootTableProvider;
@@ -105,6 +106,7 @@ public class Woodworks {
 		generator.addProvider(includeClient, new WoodworksSplashProvider(output));
 		generator.addProvider(includeClient, new WoodworksBlockStateProvider(output, helper));
 		generator.addProvider(includeClient, new WoodworksLanguageProvider(output));
+		generator.addProvider(includeClient, new WoodworksSoundDefinitionsProvider(output, helper));
 	}
 
 	@OnlyIn(Dist.CLIENT)

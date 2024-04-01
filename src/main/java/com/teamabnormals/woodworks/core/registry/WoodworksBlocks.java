@@ -9,6 +9,7 @@ import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulat
 import com.teamabnormals.woodworks.common.block.*;
 import com.teamabnormals.woodworks.core.Woodworks;
 import com.teamabnormals.woodworks.core.WoodworksConfig;
+import com.teamabnormals.woodworks.core.registry.WoodworksSounds.WoodworksSoundTypes;
 import com.teamabnormals.woodworks.core.registry.helper.WoodworksBlockSubRegistryHelper;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
@@ -59,16 +60,16 @@ public class WoodworksBlocks {
 	public static final RegistryObject<Block> CRIMSON_BOOKSHELF = HELPER.createBlock("crimson_bookshelf", () -> new Block(WoodworksProperties.CRIMSON_STEM.bookshelf()));
 	public static final RegistryObject<Block> WARPED_BOOKSHELF = HELPER.createBlock("warped_bookshelf", () -> new Block(WoodworksProperties.WARPED_STEM.bookshelf()));
 
-	public static final RegistryObject<Block> CHISELED_SPRUCE_BOOKSHELF = HELPER.createFuelBlock("chiseled_spruce_bookshelf", () -> new ChiseledSpruceBookShelfBlock(WoodworksProperties.SPRUCE_WOOD.bookshelf()), 300);
-	public static final RegistryObject<Block> CHISELED_BIRCH_BOOKSHELF = HELPER.createFuelBlock("chiseled_birch_bookshelf", () -> new ChiseledBookShelfBlock(WoodworksProperties.BIRCH_WOOD.bookshelf()), 300);
-	public static final RegistryObject<Block> CHISELED_JUNGLE_BOOKSHELF = HELPER.createFuelBlock("chiseled_jungle_bookshelf", () -> new ChiseledBookShelfBlock(WoodworksProperties.JUNGLE_WOOD.bookshelf()), 300);
-	public static final RegistryObject<Block> CHISELED_ACACIA_BOOKSHELF = HELPER.createFuelBlock("chiseled_acacia_bookshelf", () -> new ChiseledBookShelfBlock(WoodworksProperties.ACACIA_WOOD.bookshelf()), 300);
-	public static final RegistryObject<Block> CHISELED_DARK_OAK_BOOKSHELF = HELPER.createFuelBlock("chiseled_dark_oak_bookshelf", () -> new ChiseledDarkOakBookShelfBlock(WoodworksProperties.DARK_OAK_WOOD.bookshelf()), 300);
-	public static final RegistryObject<Block> CHISELED_MANGROVE_BOOKSHELF = HELPER.createFuelBlock("chiseled_mangrove_bookshelf", () -> new ChiseledMangroveBookShelfBlock(WoodworksProperties.MANGROVE_WOOD.bookshelf()), 300);
-	public static final RegistryObject<Block> CHISELED_CHERRY_BOOKSHELF = HELPER.createFuelBlock("chiseled_cherry_bookshelf", () -> new ChiseledCherryBookShelfBlock(WoodworksProperties.CHERRY_WOOD.bookshelf()), 300);
-	public static final RegistryObject<Block> CHISELED_BAMBOO_BOOKSHELF = HELPER.createFuelBlock("chiseled_bamboo_bookshelf", () -> new ChiseledBambooBookShelfBlock(WoodworksProperties.BAMBOO_WOOD.bookshelf()), 300);
-	public static final RegistryObject<Block> CHISELED_CRIMSON_BOOKSHELF = HELPER.createBlock("chiseled_crimson_bookshelf", () -> new ChiseledCrimsonBookShelfBlock(WoodworksProperties.CRIMSON_STEM.bookshelf()));
-	public static final RegistryObject<Block> CHISELED_WARPED_BOOKSHELF = HELPER.createBlock("chiseled_warped_bookshelf", () -> new ChiseledSpruceBookShelfBlock(WoodworksProperties.WARPED_STEM.bookshelf()));
+	public static final RegistryObject<Block> CHISELED_SPRUCE_BOOKSHELF = HELPER.createFuelBlock("chiseled_spruce_bookshelf", () -> new ChiseledSpruceBookShelfBlock(WoodworksProperties.SPRUCE_WOOD.chiseledBookshelf()), 300);
+	public static final RegistryObject<Block> CHISELED_BIRCH_BOOKSHELF = HELPER.createFuelBlock("chiseled_birch_bookshelf", () -> new ChiseledBookShelfBlock(WoodworksProperties.BIRCH_WOOD.chiseledBookshelf()), 300);
+	public static final RegistryObject<Block> CHISELED_JUNGLE_BOOKSHELF = HELPER.createFuelBlock("chiseled_jungle_bookshelf", () -> new ChiseledBookShelfBlock(WoodworksProperties.JUNGLE_WOOD.chiseledBookshelf()), 300);
+	public static final RegistryObject<Block> CHISELED_ACACIA_BOOKSHELF = HELPER.createFuelBlock("chiseled_acacia_bookshelf", () -> new ChiseledBookShelfBlock(WoodworksProperties.ACACIA_WOOD.chiseledBookshelf()), 300);
+	public static final RegistryObject<Block> CHISELED_DARK_OAK_BOOKSHELF = HELPER.createFuelBlock("chiseled_dark_oak_bookshelf", () -> new ChiseledDarkOakBookShelfBlock(WoodworksProperties.DARK_OAK_WOOD.chiseledBookshelf()), 300);
+	public static final RegistryObject<Block> CHISELED_MANGROVE_BOOKSHELF = HELPER.createFuelBlock("chiseled_mangrove_bookshelf", () -> new ChiseledMangroveBookShelfBlock(WoodworksProperties.MANGROVE_WOOD.chiseledBookshelf()), 300);
+	public static final RegistryObject<Block> CHISELED_CHERRY_BOOKSHELF = HELPER.createFuelBlock("chiseled_cherry_bookshelf", () -> new ChiseledCherryBookShelfBlock(WoodworksProperties.CHERRY_WOOD.chiseledBookshelf()), 300);
+	public static final RegistryObject<Block> CHISELED_BAMBOO_BOOKSHELF = HELPER.createFuelBlock("chiseled_bamboo_bookshelf", () -> new ChiseledBambooBookShelfBlock(WoodworksProperties.BAMBOO_WOOD.chiseledBookshelf()), 300);
+	public static final RegistryObject<Block> CHISELED_CRIMSON_BOOKSHELF = HELPER.createBlock("chiseled_crimson_bookshelf", () -> new ChiseledCrimsonBookShelfBlock(WoodworksProperties.CRIMSON_STEM.chiseledBookshelf()));
+	public static final RegistryObject<Block> CHISELED_WARPED_BOOKSHELF = HELPER.createBlock("chiseled_warped_bookshelf", () -> new ChiseledSpruceBookShelfBlock(WoodworksProperties.WARPED_STEM.chiseledBookshelf()));
 
 	public static final RegistryObject<Block> SPRUCE_LADDER = HELPER.createFuelBlock("spruce_ladder", () -> new LadderBlock(WoodworksProperties.SPRUCE_WOOD.ladder()), 300);
 	public static final RegistryObject<Block> BIRCH_LADDER = HELPER.createFuelBlock("birch_ladder", () -> new LadderBlock(WoodworksProperties.BIRCH_WOOD.ladder()), 300);
@@ -126,10 +127,10 @@ public class WoodworksBlocks {
 		public static final WoodSetProperties ACACIA_WOOD = WoodSetProperties.builder(MapColor.COLOR_ORANGE).build();
 		public static final WoodSetProperties DARK_OAK_WOOD = WoodSetProperties.builder(MapColor.COLOR_BROWN).build();
 		public static final WoodSetProperties MANGROVE_WOOD = WoodSetProperties.builder(MapColor.COLOR_RED).build();
-		public static final WoodSetProperties CHERRY_WOOD = WoodSetProperties.builder(MapColor.TERRACOTTA_WHITE).sound(SoundType.CHERRY_WOOD).logSound(SoundType.CHERRY_WOOD).leavesColor(MapColor.COLOR_PINK).leavesSound(SoundType.CHERRY_LEAVES).build();
-		public static final WoodSetProperties BAMBOO_WOOD = WoodSetProperties.builder(MapColor.COLOR_YELLOW).sound(SoundType.BAMBOO_WOOD).build();
-		public static final WoodSetProperties CRIMSON_STEM = WoodSetProperties.builder(MapColor.CRIMSON_STEM).basePropertiesConsumer(block -> BlockBehaviour.Properties.of()).sound(SoundType.NETHER_WOOD).build();
-		public static final WoodSetProperties WARPED_STEM = WoodSetProperties.builder(MapColor.WARPED_STEM).basePropertiesConsumer(block -> BlockBehaviour.Properties.of()).sound(SoundType.NETHER_WOOD).build();
+		public static final WoodSetProperties CHERRY_WOOD = WoodSetProperties.builder(MapColor.TERRACOTTA_WHITE).sound(SoundType.CHERRY_WOOD).logSound(SoundType.CHERRY_WOOD).leavesColor(MapColor.COLOR_PINK).leavesSound(SoundType.CHERRY_LEAVES).chiseledBookshelfSound(WoodworksSoundTypes.CHERRY_WOOD_CHISELED_BOOKSHELF).build();
+		public static final WoodSetProperties BAMBOO_WOOD = WoodSetProperties.builder(MapColor.COLOR_YELLOW).sound(SoundType.BAMBOO_WOOD).chiseledBookshelfSound(WoodworksSoundTypes.BAMBOO_WOOD_CHISELED_BOOKSHELF).build();
+		public static final WoodSetProperties CRIMSON_STEM = WoodSetProperties.builder(MapColor.CRIMSON_STEM).basePropertiesConsumer(block -> BlockBehaviour.Properties.of()).sound(SoundType.NETHER_WOOD).chiseledBookshelfSound(WoodworksSoundTypes.NETHER_WOOD_CHISELED_BOOKSHELF).build();
+		public static final WoodSetProperties WARPED_STEM = WoodSetProperties.builder(MapColor.WARPED_STEM).basePropertiesConsumer(block -> BlockBehaviour.Properties.of()).sound(SoundType.NETHER_WOOD).chiseledBookshelfSound(WoodworksSoundTypes.NETHER_WOOD_CHISELED_BOOKSHELF).build();
 		public static final WoodSetProperties AZALEA_WOOD = WoodSetProperties.builder(MapColor.TERRACOTTA_PURPLE).leavesSound(SoundType.AZALEA_LEAVES).build();
 	}
 
