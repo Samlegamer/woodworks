@@ -89,5 +89,8 @@
   "container.woodworks.closet": "Closet",
   "container.woodworks.closetDouble": "Large Closet",
   "container.woodworks.sawmill": "Sawmill",
-  "gui.woodworks.category.sawmill": "Sawing"
+  "gui.woodworks.category.sawmill": "Sawing",
+  "subtitles.woodworks.block.closet.close": "Closet closes",
+  "subtitles.woodworks.block.closet.locked": "Closet locked",
+  "subtitles.woodworks.block.closet.open": "Closet opens"
 }

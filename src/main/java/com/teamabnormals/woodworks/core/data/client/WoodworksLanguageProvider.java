@@ -5,6 +5,7 @@ import com.teamabnormals.woodworks.common.block.SawmillBlock;
 import com.teamabnormals.woodworks.common.block.entity.ClosetBlockEntity;
 import com.teamabnormals.woodworks.core.Woodworks;
 import com.teamabnormals.woodworks.core.registry.WoodworksBlocks;
+import com.teamabnormals.woodworks.core.registry.WoodworksSounds;
 import com.teamabnormals.woodworks.integration.jei.SawingRecipeCategory;
 import net.minecraft.Util;
 import net.minecraft.data.PackOutput;
@@ -34,10 +35,17 @@ public class WoodworksLanguageProvider extends LanguageProvider {
 
 		this.add(ClosetBlockEntity.CONTAINER_CLOSET, "Closet");
 		this.add(ClosetBlockEntity.CONTAINER_CLOSET_DOUBLE, "Large Closet");
+		this.subtitle("block.closet.open", "Closet opens");
+		this.subtitle("block.closet.close", "Closet closes");
+		this.subtitle("block.closet.locked", "Closet locked");
 	}
 
 	private void add(String block) {
 		this.add(Util.makeDescriptionId("block", new ResourceLocation(Woodworks.MOD_ID, block)), format(block));
+	}
+
+	private void subtitle(String key, String subtitle) {
+		this.add(Util.makeDescriptionId("subtitles", new ResourceLocation(Woodworks.MOD_ID, key)), subtitle);
 	}
 
 	private String format(ResourceLocation registryName) {

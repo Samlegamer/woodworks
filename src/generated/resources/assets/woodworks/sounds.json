@@ -229,6 +229,25 @@
     ],
     "subtitle": "subtitles.block.generic.footsteps"
   },
+  "block.closet.close": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_closet/close1"
+    ],
+    "subtitle": "subtitles.woodworks.block.closet.close"
+  },
+  "block.closet.locked": {
+    "sounds": [
+      "block/chest/close_locked",
+      "block/chest/open_locked"
+    ],
+    "subtitle": "subtitles.woodworks.block.closet.locked"
+  },
+  "block.closet.open": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_closet/open1"
+    ],
+    "subtitle": "subtitles.woodworks.block.closet.open"
+  },
   "block.nether_wood_chiseled_bookshelf.break": {
     "sounds": [
       "woodworks:block/nether_wood_chiseled_bookshelf/break1",

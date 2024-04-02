@@ -11,9 +11,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class WoodworksSounds {
 	public static final SoundSubRegistryHelper HELPER = Woodworks.REGISTRY_HELPER.getSoundSubHelper();
 
-	public static final RegistryObject<SoundEvent> CHERRY_WOOD_CHEST_OPEN = HELPER.createSoundEvent("block.cherry_wood_chest.open");
-	public static final RegistryObject<SoundEvent> CHERRY_WOOD_CHEST_CLOSE = HELPER.createSoundEvent("block.cherry_wood_chest.close");
-	
 	public static final RegistryObject<SoundEvent> CHERRY_WOOD_LADDER_BREAK = HELPER.createSoundEvent("block.cherry_wood_ladder.break");
 	public static final RegistryObject<SoundEvent> CHERRY_WOOD_LADDER_STEP = HELPER.createSoundEvent("block.cherry_wood_ladder.step");
 	public static final RegistryObject<SoundEvent> CHERRY_WOOD_LADDER_PLACE = HELPER.createSoundEvent("block.cherry_wood_ladder.place");
@@ -26,8 +23,9 @@ public class WoodworksSounds {
 	public static final RegistryObject<SoundEvent> CHERRY_WOOD_CHISELED_BOOKSHELF_HIT = HELPER.createSoundEvent("block.cherry_wood_chiseled_bookshelf.hit");
 	public static final RegistryObject<SoundEvent> CHERRY_WOOD_CHISELED_BOOKSHELF_FALL = HELPER.createSoundEvent("block.cherry_wood_chiseled_bookshelf.fall");
 
-	public static final RegistryObject<SoundEvent> BAMBOO_WOOD_CLOSET_OPEN = HELPER.createSoundEvent("block.bamboo_wood_closet.open");
-	public static final RegistryObject<SoundEvent> BAMBOO_WOOD_CLOSET_CLOSE = HELPER.createSoundEvent("block.bamboo_wood_closet.close");
+	public static final RegistryObject<SoundEvent> BAMBOO_WOOD_CLOSET_OPEN = HELPER.createSoundEvent("block.closet.open");
+	public static final RegistryObject<SoundEvent> BAMBOO_WOOD_CLOSET_CLOSE = HELPER.createSoundEvent("block.closet.close");
+	public static final RegistryObject<SoundEvent> BAMBOO_WOOD_CLOSET_LOCKED = HELPER.createSoundEvent("block.closet.locked");
 
 	public static final RegistryObject<SoundEvent> BAMBOO_WOOD_LADDER_BREAK = HELPER.createSoundEvent("block.bamboo_wood_ladder.break");
 	public static final RegistryObject<SoundEvent> BAMBOO_WOOD_LADDER_STEP = HELPER.createSoundEvent("block.bamboo_wood_ladder.step");
@@ -41,9 +39,6 @@ public class WoodworksSounds {
 	public static final RegistryObject<SoundEvent> BAMBOO_WOOD_CHISELED_BOOKSHELF_HIT = HELPER.createSoundEvent("block.bamboo_wood_chiseled_bookshelf.hit");
 	public static final RegistryObject<SoundEvent> BAMBOO_WOOD_CHISELED_BOOKSHELF_FALL = HELPER.createSoundEvent("block.bamboo_wood_chiseled_bookshelf.fall");
 
-	public static final RegistryObject<SoundEvent> NETHER_WOOD_CHEST_OPEN = HELPER.createSoundEvent("block.nether_wood_chest.open");
-	public static final RegistryObject<SoundEvent> NETHER_WOOD_CHEST_CLOSE = HELPER.createSoundEvent("block.nether_wood_chest.close");
-	
 	public static final RegistryObject<SoundEvent> NETHER_WOOD_LADDER_BREAK = HELPER.createSoundEvent("block.nether_wood_ladder.break");
 	public static final RegistryObject<SoundEvent> NETHER_WOOD_LADDER_STEP = HELPER.createSoundEvent("block.nether_wood_ladder.step");
 	public static final RegistryObject<SoundEvent> NETHER_WOOD_LADDER_PLACE = HELPER.createSoundEvent("block.nether_wood_ladder.place");
