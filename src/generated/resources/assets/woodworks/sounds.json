@@ -50,6 +50,85 @@
     ],
     "subtitle": "subtitles.block.generic.footsteps"
   },
+  "block.bamboo_wood_ladder.break": {
+    "sounds": [
+      {
+        "name": "block/bamboo_wood/break1",
+        "volume": 0.9
+      },
+      {
+        "name": "block/bamboo_wood/break2",
+        "volume": 0.9
+      },
+      {
+        "name": "block/bamboo_wood/break3",
+        "volume": 0.9
+      },
+      {
+        "name": "block/bamboo_wood/break4",
+        "volume": 0.9
+      },
+      {
+        "name": "block/bamboo_wood/break5",
+        "volume": 0.9
+      }
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.bamboo_wood_ladder.fall": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_ladder/step1",
+      "woodworks:block/bamboo_wood_ladder/step2",
+      "woodworks:block/bamboo_wood_ladder/step3",
+      "woodworks:block/bamboo_wood_ladder/step4",
+      "woodworks:block/bamboo_wood_ladder/step5"
+    ]
+  },
+  "block.bamboo_wood_ladder.hit": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_ladder/step1",
+      "woodworks:block/bamboo_wood_ladder/step2",
+      "woodworks:block/bamboo_wood_ladder/step3",
+      "woodworks:block/bamboo_wood_ladder/step4",
+      "woodworks:block/bamboo_wood_ladder/step5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.bamboo_wood_ladder.place": {
+    "sounds": [
+      {
+        "name": "block/bamboo_wood/break1",
+        "volume": 0.9
+      },
+      {
+        "name": "block/bamboo_wood/break2",
+        "volume": 0.9
+      },
+      {
+        "name": "block/bamboo_wood/break3",
+        "volume": 0.9
+      },
+      {
+        "name": "block/bamboo_wood/break4",
+        "volume": 0.9
+      },
+      {
+        "name": "block/bamboo_wood/break5",
+        "volume": 0.9
+      }
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.bamboo_wood_ladder.step": {
+    "sounds": [
+      "woodworks:block/bamboo_wood_ladder/step1",
+      "woodworks:block/bamboo_wood_ladder/step2",
+      "woodworks:block/bamboo_wood_ladder/step3",
+      "woodworks:block/bamboo_wood_ladder/step4",
+      "woodworks:block/bamboo_wood_ladder/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
   "block.cherry_wood_chiseled_bookshelf.break": {
     "sounds": [
       "woodworks:block/cherry_wood_chiseled_bookshelf/break1",
@@ -101,6 +180,55 @@
     ],
     "subtitle": "subtitles.block.generic.footsteps"
   },
+  "block.cherry_wood_ladder.break": {
+    "sounds": [
+      "block/cherry_wood/break1",
+      "block/cherry_wood/break2",
+      "block/cherry_wood/break3",
+      "block/cherry_wood/break4",
+      "block/cherry_wood/break5"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.cherry_wood_ladder.fall": {
+    "sounds": [
+      "woodworks:block/cherry_wood_ladder/step1",
+      "woodworks:block/cherry_wood_ladder/step2",
+      "woodworks:block/cherry_wood_ladder/step3",
+      "woodworks:block/cherry_wood_ladder/step4",
+      "woodworks:block/cherry_wood_ladder/step5"
+    ]
+  },
+  "block.cherry_wood_ladder.hit": {
+    "sounds": [
+      "woodworks:block/cherry_wood_ladder/step1",
+      "woodworks:block/cherry_wood_ladder/step2",
+      "woodworks:block/cherry_wood_ladder/step3",
+      "woodworks:block/cherry_wood_ladder/step4",
+      "woodworks:block/cherry_wood_ladder/step5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.cherry_wood_ladder.place": {
+    "sounds": [
+      "block/cherry_wood/break1",
+      "block/cherry_wood/break2",
+      "block/cherry_wood/break3",
+      "block/cherry_wood/break4",
+      "block/cherry_wood/break5"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.cherry_wood_ladder.step": {
+    "sounds": [
+      "woodworks:block/cherry_wood_ladder/step1",
+      "woodworks:block/cherry_wood_ladder/step2",
+      "woodworks:block/cherry_wood_ladder/step3",
+      "woodworks:block/cherry_wood_ladder/step4",
+      "woodworks:block/cherry_wood_ladder/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
   "block.nether_wood_chiseled_bookshelf.break": {
     "sounds": [
       "woodworks:block/nether_wood_chiseled_bookshelf/break1",
@@ -149,6 +277,53 @@
       "woodworks:block/nether_wood_chiseled_bookshelf/step3",
       "woodworks:block/nether_wood_chiseled_bookshelf/step4",
       "woodworks:block/nether_wood_chiseled_bookshelf/step5"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.nether_wood_ladder.break": {
+    "sounds": [
+      "block/nether_wood/break1",
+      "block/nether_wood/break2",
+      "block/nether_wood/break3",
+      "block/nether_wood/break4"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.nether_wood_ladder.fall": {
+    "sounds": [
+      "woodworks:block/nether_wood_ladder/step1",
+      "woodworks:block/nether_wood_ladder/step2",
+      "woodworks:block/nether_wood_ladder/step3",
+      "woodworks:block/nether_wood_ladder/step4",
+      "woodworks:block/nether_wood_ladder/step5"
+    ]
+  },
+  "block.nether_wood_ladder.hit": {
+    "sounds": [
+      "woodworks:block/nether_wood_ladder/step1",
+      "woodworks:block/nether_wood_ladder/step2",
+      "woodworks:block/nether_wood_ladder/step3",
+      "woodworks:block/nether_wood_ladder/step4",
+      "woodworks:block/nether_wood_ladder/step5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.nether_wood_ladder.place": {
+    "sounds": [
+      "block/nether_wood/break1",
+      "block/nether_wood/break2",
+      "block/nether_wood/break3",
+      "block/nether_wood/break4"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.nether_wood_ladder.step": {
+    "sounds": [
+      "woodworks:block/nether_wood_ladder/step1",
+      "woodworks:block/nether_wood_ladder/step2",
+      "woodworks:block/nether_wood_ladder/step3",
+      "woodworks:block/nether_wood_ladder/step4",
+      "woodworks:block/nether_wood_ladder/step5"
     ],
     "subtitle": "subtitles.block.generic.footsteps"
   }

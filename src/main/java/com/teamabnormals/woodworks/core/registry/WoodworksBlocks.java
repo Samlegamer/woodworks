@@ -77,10 +77,10 @@ public class WoodworksBlocks {
 	public static final RegistryObject<Block> ACACIA_LADDER = HELPER.createFuelBlock("acacia_ladder", () -> new LadderBlock(WoodworksProperties.ACACIA_WOOD.ladder()), 300);
 	public static final RegistryObject<Block> DARK_OAK_LADDER = HELPER.createFuelBlock("dark_oak_ladder", () -> new LadderBlock(WoodworksProperties.DARK_OAK_WOOD.ladder()), 300);
 	public static final RegistryObject<Block> MANGROVE_LADDER = HELPER.createFuelBlock("mangrove_ladder", () -> new LadderBlock(WoodworksProperties.MANGROVE_WOOD.ladder()), 300);
-	public static final RegistryObject<Block> CHERRY_LADDER = HELPER.createFuelBlock("cherry_ladder", () -> new LadderBlock(WoodworksProperties.CHERRY_WOOD.ladder()), 300);
-	public static final RegistryObject<Block> BAMBOO_LADDER = HELPER.createFuelBlock("bamboo_ladder", () -> new LadderBlock(WoodworksProperties.BAMBOO_WOOD.ladder()), 300);
-	public static final RegistryObject<Block> CRIMSON_LADDER = HELPER.createBlock("crimson_ladder", () -> new LadderBlock(WoodworksProperties.CRIMSON_STEM.ladder()));
-	public static final RegistryObject<Block> WARPED_LADDER = HELPER.createBlock("warped_ladder", () -> new LadderBlock(WoodworksProperties.WARPED_STEM.ladder()));
+	public static final RegistryObject<Block> CHERRY_LADDER = HELPER.createFuelBlock("cherry_ladder", () -> new LadderBlock(WoodworksProperties.CHERRY_WOOD.ladder().sound(WoodworksSoundTypes.CHERRY_WOOD_LADDER)), 300);
+	public static final RegistryObject<Block> BAMBOO_LADDER = HELPER.createFuelBlock("bamboo_ladder", () -> new LadderBlock(WoodworksProperties.BAMBOO_WOOD.ladder().sound(WoodworksSoundTypes.BAMBOO_WOOD_LADDER)), 300);
+	public static final RegistryObject<Block> CRIMSON_LADDER = HELPER.createBlock("crimson_ladder", () -> new LadderBlock(WoodworksProperties.CRIMSON_STEM.ladder().sound(WoodworksSoundTypes.NETHER_WOOD_LADDER)));
+	public static final RegistryObject<Block> WARPED_LADDER = HELPER.createBlock("warped_ladder", () -> new LadderBlock(WoodworksProperties.WARPED_STEM.ladder().sound(WoodworksSoundTypes.NETHER_WOOD_LADDER)));
 
 	public static final RegistryObject<Block> SPRUCE_BEEHIVE = HELPER.createBlock("spruce_beehive", () -> new BlueprintBeehiveBlock(WoodworksProperties.SPRUCE_WOOD.beehive()));
 	public static final RegistryObject<Block> BIRCH_BEEHIVE = HELPER.createBlock("birch_beehive", () -> new BlueprintBeehiveBlock(WoodworksProperties.BIRCH_WOOD.beehive()));
