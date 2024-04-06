@@ -1,15 +1,5 @@
 {
   "values": [
-    "woodworks:trapped_oak_chest",
-    "woodworks:trapped_spruce_chest",
-    "woodworks:trapped_birch_chest",
-    "woodworks:trapped_jungle_chest",
-    "woodworks:trapped_acacia_chest",
-    "woodworks:trapped_dark_oak_chest",
-    "woodworks:trapped_mangrove_chest",
-    "woodworks:trapped_cherry_chest",
-    "woodworks:trapped_bamboo_closet",
-    "woodworks:trapped_crimson_chest",
-    "woodworks:trapped_warped_chest"
+    "#woodworks:wooden_trapped_chests"
   ]
 }
