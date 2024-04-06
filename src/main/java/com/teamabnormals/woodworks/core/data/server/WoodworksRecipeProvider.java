@@ -27,6 +27,7 @@ import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.AndCondition;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Consumer;
@@ -35,6 +36,15 @@ import static com.teamabnormals.woodworks.core.WoodworksConfig.COMMON;
 import static com.teamabnormals.woodworks.core.registry.WoodworksBlocks.*;
 
 public class WoodworksRecipeProvider extends RecipeProvider implements IConditionBuilder {
+	public static final ModLoadedCondition WOODWORKS_LOADED = new ModLoadedCondition(Woodworks.MOD_ID);
+
+	public static final ConfigValueCondition SAWMILL_ENABLED = config(COMMON.sawmill, "sawmill");
+	public static final ConfigValueCondition WOODEN_BOOKSHELVES = config(COMMON.woodenBookshelves, "wooden_bookshelves");
+	public static final ConfigValueCondition WOODEN_LADDERS = config(COMMON.woodenLadders, "wooden_ladders");
+	public static final ConfigValueCondition WOODEN_BEEHIVES = config(COMMON.woodenBeehives, "wooden_beehives");
+	public static final ConfigValueCondition WOODEN_CHESTS = config(COMMON.woodenChests, "wooden_chests");
+	public static final ConfigValueCondition WOODEN_BOARDS = config(COMMON.woodenBoards, "wooden_boards");
+	public static final ConfigValueCondition LEAF_PILES = config(COMMON.leafPiles, "leaf_piles");
 
 	public WoodworksRecipeProvider(PackOutput output) {
 		super(output);
@@ -42,14 +52,14 @@ public class WoodworksRecipeProvider extends RecipeProvider implements IConditio
 
 	@Override
 	public void buildRecipes(Consumer<FinishedRecipe> consumer) {
-		conditionalRecipe(consumer, config(COMMON.sawmill, "sawmill"), RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, SAWMILL.get()).define('I', Tags.Items.INGOTS_IRON).define('#', ItemTags.PLANKS).define('S', ItemTags.WOODEN_SLABS).pattern("#I").pattern("# ").pattern("#S").unlockedBy("has_planks", has(ItemTags.PLANKS)));
+		conditionalRecipe(consumer, SAWMILL_ENABLED, RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, SAWMILL.get()).define('I', Tags.Items.INGOTS_IRON).define('#', ItemTags.PLANKS).define('S', ItemTags.WOODEN_SLABS).pattern("#I").pattern("# ").pattern("#S").unlockedBy("has_planks", has(ItemTags.PLANKS)));
 		conditionalRecipe(consumer, config(COMMON.woodenBookshelves, "wooden_bookshelves", true), RecipeCategory.BUILDING_BLOCKS, ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Blocks.BOOKSHELF).define('#', ItemTags.PLANKS).define('X', Items.BOOK).pattern("###").pattern("XXX").pattern("###").unlockedBy("has_book", has(Items.BOOK)));
 		conditionalRecipe(consumer, config(COMMON.woodenBookshelves, "wooden_bookshelves", true), RecipeCategory.BUILDING_BLOCKS, ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Blocks.CHISELED_BOOKSHELF).define('#', ItemTags.PLANKS).define('X', ItemTags.WOODEN_SLABS).pattern("###").pattern("XXX").pattern("###").unlockedBy("has_book", has(Items.BOOK)));
 		conditionalRecipe(consumer, config(COMMON.woodenLadders, "wooden_ladders", true), RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.LADDER, 3).define('#', Items.STICK).pattern("# #").pattern("###").pattern("# #").unlockedBy("has_stick", has(Items.STICK)));
 		conditionalRecipe(consumer, config(COMMON.woodenBeehives, "wooden_beehives", true), RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.BEEHIVE).define('P', ItemTags.PLANKS).define('H', Items.HONEYCOMB).pattern("PPP").pattern("HHH").pattern("PPP").unlockedBy("has_honeycomb", has(Items.HONEYCOMB)));
 		conditionalRecipe(consumer, config(COMMON.woodenChests, "wooden_chests", true), RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.CHEST).define('#', ItemTags.PLANKS).pattern("###").pattern("# #").pattern("###").unlockedBy("has_lots_of_items", new InventoryChangeTrigger.TriggerInstance(ContextAwarePredicate.ANY, MinMaxBounds.Ints.atLeast(10), MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, new ItemPredicate[0])));
 		conditionalRecipe(consumer, config(COMMON.woodenChests, "wooden_chests", true), RecipeCategory.REDSTONE, ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, Blocks.TRAPPED_CHEST).requires(Tags.Items.CHESTS_WOODEN).requires(Blocks.TRIPWIRE_HOOK).unlockedBy("has_tripwire_hook", has(Blocks.TRIPWIRE_HOOK)));
-		conditionalRecipe(consumer, config(COMMON.woodenChests, "wooden_chests"), RecipeCategory.REDSTONE, ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, Blocks.TRAPPED_CHEST).requires(Blocks.CHEST).requires(Blocks.TRIPWIRE_HOOK).unlockedBy("has_tripwire_hook", has(Blocks.TRIPWIRE_HOOK)), new ResourceLocation(Woodworks.MOD_ID, "trapped_chest"));
+		conditionalRecipe(consumer, WOODEN_CHESTS, RecipeCategory.REDSTONE, ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, Blocks.TRAPPED_CHEST).requires(Blocks.CHEST).requires(Blocks.TRIPWIRE_HOOK).unlockedBy("has_tripwire_hook", has(Blocks.TRIPWIRE_HOOK)), new ResourceLocation(Woodworks.MOD_ID, "trapped_chest"));
 		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, Blocks.LECTERN).define('S', ItemTags.WOODEN_SLABS).define('B', Tags.Items.BOOKSHELVES).pattern("SSS").pattern(" B ").pattern(" S ").unlockedBy("has_book", has(Items.BOOK)).save(consumer);
 
 		baseRecipes(consumer, Blocks.OAK_PLANKS, Blocks.OAK_SLAB, OAK_BOARDS.get(), Blocks.BOOKSHELF, Blocks.CHISELED_BOOKSHELF, Blocks.LADDER, Blocks.BEEHIVE, OAK_CHEST.get(), TRAPPED_OAK_CHEST.get());
@@ -89,19 +99,29 @@ public class WoodworksRecipeProvider extends RecipeProvider implements IConditio
 	}
 
 	public static void baseRecipes(Consumer<FinishedRecipe> consumer, Block planks, Block slab, Block boards, Block bookshelf, Block chiseledBookshelf, Block ladder, Block beehive, Block chest, Block trappedChest) {
+		baseRecipes(consumer, planks, slab, boards, bookshelf, chiseledBookshelf, ladder, beehive, chest, trappedChest, false);
+	}
+
+	public static void baseRecipes(Consumer<FinishedRecipe> consumer, Block planks, Block slab, Block boards, Block bookshelf, Block chiseledBookshelf, Block ladder, Block beehive, Block chest, Block trappedChest, boolean compat) {
+		ICondition boardsCondition = compat ? new AndCondition(WOODWORKS_LOADED, WOODEN_BOARDS) : WOODEN_BOARDS;
+		ICondition bookshelfCondition = compat ? new AndCondition(WOODWORKS_LOADED, WOODEN_BOOKSHELVES) : WOODEN_BOOKSHELVES;
+		ICondition ladderCondition = compat ? new AndCondition(WOODWORKS_LOADED, WOODEN_LADDERS) : WOODEN_LADDERS;
+		ICondition beehiveCondition = compat ? new AndCondition(WOODWORKS_LOADED, WOODEN_BEEHIVES) : WOODEN_BEEHIVES;
+		ICondition chestCondition = compat ? new AndCondition(WOODWORKS_LOADED, WOODEN_CHESTS) : WOODEN_CHESTS;
+
 		String prefix = planks == Blocks.OAK_PLANKS ? "oak_" : "";
 		if (boards != null) {
-			conditionalRecipe(consumer, config(COMMON.woodenBoards, "wooden_boards"), RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, boards).define('#', slab).pattern("#").pattern("#").group("wooden_boards").unlockedBy(getHasName(slab), has(slab)));
+			conditionalRecipe(consumer, boardsCondition, RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, boards).define('#', slab).pattern("#").pattern("#").group("wooden_boards").unlockedBy(getHasName(slab), has(slab)));
 		}
-		conditionalRecipe(consumer, config(COMMON.woodenBookshelves, "wooden_bookshelves"), RecipeCategory.BUILDING_BLOCKS, ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, bookshelf).define('#', planks).define('X', Items.BOOK).pattern("###").pattern("XXX").pattern("###").group("wooden_bookshelf").unlockedBy("has_book", has(Items.BOOK)), new ResourceLocation(Woodworks.MOD_ID, prefix + ForgeRegistries.BLOCKS.getKey(bookshelf).getPath()));
-		conditionalRecipe(consumer, config(COMMON.woodenBookshelves, "wooden_bookshelves"), RecipeCategory.BUILDING_BLOCKS, ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, chiseledBookshelf).define('#', planks).define('X', slab).pattern("###").pattern("XXX").pattern("###").unlockedBy("has_book", has(Items.BOOK)), new ResourceLocation(Woodworks.MOD_ID, prefix + ForgeRegistries.BLOCKS.getKey(chiseledBookshelf).getPath()));
-		conditionalRecipe(consumer, config(COMMON.woodenLadders, "wooden_ladders"), RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ladder, 4).define('#', planks).define('S', Items.STICK).pattern("S S").pattern("S#S").pattern("S S").group("wooden_ladder").unlockedBy("has_stick", has(Items.STICK)), new ResourceLocation(Woodworks.MOD_ID, prefix + ForgeRegistries.BLOCKS.getKey(ladder).getPath()));
-		conditionalRecipe(consumer, config(COMMON.woodenBeehives, "wooden_beehives"), RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, beehive).define('#', planks).define('H', Items.HONEYCOMB).pattern("###").pattern("HHH").pattern("###").group("wooden_beehive").unlockedBy("has_honeycomb", has(Items.HONEYCOMB)), new ResourceLocation(Woodworks.MOD_ID, prefix + ForgeRegistries.BLOCKS.getKey(beehive).getPath()));
+		conditionalRecipe(consumer, bookshelfCondition, RecipeCategory.BUILDING_BLOCKS, ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, bookshelf).define('#', planks).define('X', Items.BOOK).pattern("###").pattern("XXX").pattern("###").group("wooden_bookshelf").unlockedBy("has_book", has(Items.BOOK)), new ResourceLocation(Woodworks.MOD_ID, prefix + ForgeRegistries.BLOCKS.getKey(bookshelf).getPath()));
+		conditionalRecipe(consumer, bookshelfCondition, RecipeCategory.BUILDING_BLOCKS, ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, chiseledBookshelf).define('#', planks).define('X', slab).pattern("###").pattern("XXX").pattern("###").unlockedBy("has_book", has(Items.BOOK)), new ResourceLocation(Woodworks.MOD_ID, prefix + ForgeRegistries.BLOCKS.getKey(chiseledBookshelf).getPath()));
+		conditionalRecipe(consumer, ladderCondition, RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ladder, 4).define('#', planks).define('S', Items.STICK).pattern("S S").pattern("S#S").pattern("S S").group("wooden_ladder").unlockedBy("has_stick", has(Items.STICK)), new ResourceLocation(Woodworks.MOD_ID, prefix + ForgeRegistries.BLOCKS.getKey(ladder).getPath()));
+		conditionalRecipe(consumer, beehiveCondition, RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, beehive).define('#', planks).define('H', Items.HONEYCOMB).pattern("###").pattern("HHH").pattern("###").group("wooden_beehive").unlockedBy("has_honeycomb", has(Items.HONEYCOMB)), new ResourceLocation(Woodworks.MOD_ID, prefix + ForgeRegistries.BLOCKS.getKey(beehive).getPath()));
 		if (chest != null) {
-			conditionalRecipe(consumer, config(COMMON.woodenChests, "wooden_chests"), RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, chest).define('#', planks).pattern("###").pattern("# #").pattern("###").group("wooden_chest").unlockedBy("has_lots_of_items", new InventoryChangeTrigger.TriggerInstance(ContextAwarePredicate.ANY, MinMaxBounds.Ints.atLeast(10), MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, new ItemPredicate[0])));
+			conditionalRecipe(consumer, chestCondition, RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, chest).define('#', planks).pattern("###").pattern("# #").pattern("###").group("wooden_chest").unlockedBy("has_lots_of_items", new InventoryChangeTrigger.TriggerInstance(ContextAwarePredicate.ANY, MinMaxBounds.Ints.atLeast(10), MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, new ItemPredicate[0])));
 		}
 		if (trappedChest != null) {
-			conditionalRecipe(consumer, config(COMMON.woodenChests, "wooden_chests"), RecipeCategory.REDSTONE, ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, trappedChest).requires(chest).requires(Blocks.TRIPWIRE_HOOK).group("wooden_trapped_chest").unlockedBy("has_tripwire_hook", has(Blocks.TRIPWIRE_HOOK)));
+			conditionalRecipe(consumer, chestCondition, RecipeCategory.REDSTONE, ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, trappedChest).requires(chest).requires(Blocks.TRIPWIRE_HOOK).group("wooden_trapped_chest").unlockedBy("has_tripwire_hook", has(Blocks.TRIPWIRE_HOOK)));
 		}
 	}
 
@@ -114,34 +134,41 @@ public class WoodworksRecipeProvider extends RecipeProvider implements IConditio
 		Block button = family.get(BlockFamily.Variant.BUTTON);
 		Block door = family.get(BlockFamily.Variant.DOOR);
 		Block fence = family.get(BlockFamily.Variant.FENCE);
+		if (fence == null) fence = family.get(BlockFamily.Variant.CUSTOM_FENCE);
 		Block fenceGate = family.get(BlockFamily.Variant.FENCE_GATE);
+		if (fenceGate == null) fenceGate = family.get(BlockFamily.Variant.CUSTOM_FENCE_GATE);
 		Block pressurePlate = family.get(BlockFamily.Variant.PRESSURE_PLATE);
 		Block sign = family.get(BlockFamily.Variant.SIGN);
 		Block slab = family.get(BlockFamily.Variant.SLAB);
 		Block stairs = family.get(BlockFamily.Variant.STAIRS);
 		Block trapdoor = family.get(BlockFamily.Variant.TRAPDOOR);
 
-		sawmillRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, logs, planks, 4);
-		sawmillRecipe(consumer, RecipeCategory.REDSTONE, planks, button, 1);
-		sawmillRecipe(consumer, RecipeCategory.REDSTONE, logs, button, 4);
-		sawmillRecipe(consumer, RecipeCategory.REDSTONE, logs, door, 2);
-		sawmillRecipe(consumer, RecipeCategory.DECORATIONS, planks, fence, 1);
-		sawmillRecipe(consumer, RecipeCategory.DECORATIONS, logs, fence, 4);
-		sawmillRecipe(consumer, RecipeCategory.REDSTONE, logs, fenceGate, 1);
-		sawmillRecipe(consumer, RecipeCategory.REDSTONE, logs, pressurePlate, 2);
-		sawmillRecipe(consumer, RecipeCategory.DECORATIONS, logs, sign, 2);
-		sawmillRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, planks, slab, 2);
-		sawmillRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, logs, slab, 8);
-		sawmillRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, planks, stairs, 1);
-		sawmillRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, logs, stairs, 4);
-		sawmillRecipe(consumer, RecipeCategory.REDSTONE, logs, trapdoor, 2);
+		ICondition sawmillCondition = compat ? new AndCondition(WOODWORKS_LOADED, SAWMILL_ENABLED) : SAWMILL_ENABLED;
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.BUILDING_BLOCKS, logs, planks, 4);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.REDSTONE, planks, button, 1);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.REDSTONE, logs, button, 4);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.REDSTONE, logs, door, 2);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.DECORATIONS, planks, fence, 1);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.DECORATIONS, logs, fence, 4);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.REDSTONE, logs, fenceGate, 1);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.REDSTONE, logs, pressurePlate, 2);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.DECORATIONS, logs, sign, 2);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.BUILDING_BLOCKS, planks, slab, 2);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.BUILDING_BLOCKS, logs, slab, 8);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.BUILDING_BLOCKS, planks, stairs, 1);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.BUILDING_BLOCKS, logs, stairs, 4);
+		sawmillRecipe(consumer, sawmillCondition, RecipeCategory.REDSTONE, logs, trapdoor, 2);
 
 		if (boards != null) {
-			conditionalSawmillRecipe(consumer, config(COMMON.woodenBoards, "wooden_boards"), RecipeCategory.BUILDING_BLOCKS, planks, boards);
-			conditionalSawmillRecipe(consumer, config(COMMON.woodenBoards, "wooden_boards"), RecipeCategory.BUILDING_BLOCKS, logs, boards, 4);
+			ICondition boardsCondition = compat ? new AndCondition(WOODWORKS_LOADED, SAWMILL_ENABLED, WOODEN_BOARDS) : new AndCondition(SAWMILL_ENABLED, WOODEN_BOARDS);
+			sawmillRecipe(consumer, boardsCondition, RecipeCategory.BUILDING_BLOCKS, planks, boards, 1);
+			sawmillRecipe(consumer, boardsCondition, RecipeCategory.BUILDING_BLOCKS, logs, boards, 4);
 		}
-		conditionalSawmillRecipe(consumer, config(COMMON.woodenLadders, "wooden_ladders"), RecipeCategory.DECORATIONS, planks, ladder, 1, planks == Blocks.OAK_PLANKS);
-		conditionalSawmillRecipe(consumer, config(COMMON.woodenLadders, "wooden_ladders"), RecipeCategory.DECORATIONS, logs, ladder, 4, planks == Blocks.OAK_PLANKS);
+
+		ICondition ladderCondition = compat ? new AndCondition(WOODWORKS_LOADED, SAWMILL_ENABLED, WOODEN_LADDERS) : new AndCondition(SAWMILL_ENABLED, WOODEN_LADDERS);
+		String prefix = planks == Blocks.OAK_PLANKS ? "oak_" : "";
+		sawmillRecipe(consumer, ladderCondition, RecipeCategory.DECORATIONS, planks, ladder, 1, prefix);
+		sawmillRecipe(consumer, ladderCondition, RecipeCategory.DECORATIONS, logs, ladder, 4, prefix);
 	}
 
 	public static void conditionalRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, RecipeBuilder recipe) {
@@ -152,53 +179,38 @@ public class WoodworksRecipeProvider extends RecipeProvider implements IConditio
 		ConditionalRecipe.builder().addCondition(condition).addRecipe(consumer1 -> recipe.save(consumer1, id)).generateAdvancement(new ResourceLocation(id.getNamespace(), "recipes/" + recipeCategory.getFolderName() + "/" + id.getPath())).build(consumer, id);
 	}
 
-	public static void conditionalSawmillRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, ItemLike input, ItemLike output) {
-		conditionalSawmillRecipe(consumer, condition, recipeCategory, input, output, 1);
+	public static void sawmillRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, ItemLike input, ItemLike output, int count) {
+		sawmillRecipe(consumer, condition, recipeCategory, input, output, count, "");
 	}
 
-	public static void sawmillRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory recipeCategory, ItemLike input, ItemLike output, int count) {
-		if (input != null) {
-			ResourceLocation id = new ResourceLocation(Woodworks.MOD_ID, getConversionRecipeName(output, input) + "_sawing");
-			RecipeBuilder recipe = sawmillResultFromBase(recipeCategory, output, input, count);
-			ConditionalRecipe.builder().addCondition(config(COMMON.sawmill, "sawmill")).addRecipe(consumer1 -> recipe.save(consumer1, id)).generateAdvancement(new ResourceLocation(id.getNamespace(), "recipes/" + recipeCategory.getFolderName() + "/" + id.getPath())).build(consumer, id);
-		}
-	}
-
-	public static void sawmillRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory recipeCategory, TagKey<Item> input, ItemLike output, int count) {
-		if (input != null) {
-			ResourceLocation id = new ResourceLocation(Woodworks.MOD_ID, getConversionRecipeName(output, input) + "_sawing");
-			RecipeBuilder recipe = sawmillResultFromBase(recipeCategory, output, input, count);
-			ConditionalRecipe.builder().addCondition(config(COMMON.sawmill, "sawmill")).addRecipe(consumer1 -> recipe.save(consumer1, id)).generateAdvancement(new ResourceLocation(id.getNamespace(), "recipes/" + recipeCategory.getFolderName() + "/" + id.getPath())).build(consumer, id);
-		}
-	}
-
-	public static void conditionalSawmillRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, ItemLike input, ItemLike output, int count) {
-		conditionalSawmillRecipe(consumer, condition, recipeCategory, input, output, count, false);
-	}
-
-	public static void conditionalSawmillRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, ItemLike input, ItemLike output, int count, boolean doPrefix) {
-		String prefix = doPrefix ? "oak_" : "";
-		ResourceLocation id = new ResourceLocation(Woodworks.MOD_ID, prefix + getConversionRecipeName(output, input) + "_sawing");
-		RecipeBuilder recipe = sawmillResultFromBase(recipeCategory, output, input, count);
-		ConditionalRecipe.builder().addCondition(new AndCondition(config(COMMON.sawmill, "sawmill"), condition)).addRecipe(consumer1 -> recipe.save(consumer1, id)).generateAdvancement(new ResourceLocation(id.getNamespace(), "recipes/" + recipeCategory.getFolderName() + "/" + id.getPath())).build(consumer, id);
-	}
-
-	public static void conditionalSawmillRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, TagKey<Item> input, ItemLike output, int count) {
-		conditionalSawmillRecipe(consumer, condition, recipeCategory, input, output, count, false);
-	}
-
-	public static void conditionalSawmillRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, TagKey<Item> input, ItemLike output, int count, boolean doPrefix) {
-		if (input != null) {
-			String prefix = doPrefix ? "oak_" : "";
+	public static void sawmillRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, ItemLike input, ItemLike output, int count, String prefix) {
+		if (input != null && output != null) {
 			ResourceLocation id = new ResourceLocation(Woodworks.MOD_ID, prefix + getConversionRecipeName(output, input) + "_sawing");
 			RecipeBuilder recipe = sawmillResultFromBase(recipeCategory, output, input, count);
-			ConditionalRecipe.builder().addCondition(new AndCondition(config(COMMON.sawmill, "sawmill"), condition)).addRecipe(consumer1 -> recipe.save(consumer1, id)).generateAdvancement(new ResourceLocation(id.getNamespace(), "recipes/" + recipeCategory.getFolderName() + "/" + id.getPath())).build(consumer, id);
+			ConditionalRecipe.builder().addCondition(condition).addRecipe(consumer1 -> recipe.save(consumer1, id)).generateAdvancement(new ResourceLocation(id.getNamespace(), "recipes/" + recipeCategory.getFolderName() + "/" + id.getPath())).build(consumer, id);
+		}
+	}
+
+	public static void sawmillRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, TagKey<Item> input, ItemLike output, int count) {
+		sawmillRecipe(consumer, condition, recipeCategory, input, output, count, "");
+	}
+
+	public static void sawmillRecipe(Consumer<FinishedRecipe> consumer, ICondition condition, RecipeCategory recipeCategory, TagKey<Item> input, ItemLike output, int count, String prefix) {
+		if (input != null && output != null) {
+			ResourceLocation id = new ResourceLocation(Woodworks.MOD_ID, prefix + getConversionRecipeName(output, input) + "_sawing");
+			RecipeBuilder recipe = sawmillResultFromBase(recipeCategory, output, input, count);
+			ConditionalRecipe.builder().addCondition(condition).addRecipe(consumer1 -> recipe.save(consumer1, id)).generateAdvancement(new ResourceLocation(id.getNamespace(), "recipes/" + recipeCategory.getFolderName() + "/" + id.getPath())).build(consumer, id);
 		}
 	}
 
 	public static void leafPile(Consumer<FinishedRecipe> consumer, Block leaves, Block leafPile) {
-		conditionalRecipe(consumer, config(COMMON.leafPiles, "leaf_piles"), RecipeCategory.DECORATIONS, ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, leafPile, 4).requires(leaves, 1).group("leaf_pile").unlockedBy(getHasName(leaves), has(leaves)));
-		conditionalRecipe(consumer, config(COMMON.leafPiles, "leaf_piles"), RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, leaves, 1).define('#', leafPile).pattern("##").pattern("##").group("leaves").unlockedBy(getHasName(leafPile), has(leafPile)), new ResourceLocation(Woodworks.MOD_ID, ForgeRegistries.BLOCKS.getKey(leaves).getPath() + "_from_leaf_piles"));
+		leafPile(consumer, leaves, leafPile, false);
+	}
+
+	public static void leafPile(Consumer<FinishedRecipe> consumer, Block leaves, Block leafPile, boolean compat) {
+		ICondition condition = compat ? new AndCondition(WOODWORKS_LOADED, LEAF_PILES) : LEAF_PILES;
+		conditionalRecipe(consumer, condition, RecipeCategory.DECORATIONS, ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, leafPile, 4).requires(leaves, 1).group("leaf_pile").unlockedBy(getHasName(leaves), has(leaves)));
+		conditionalRecipe(consumer, condition, RecipeCategory.DECORATIONS, ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, leaves, 1).define('#', leafPile).pattern("##").pattern("##").group("leaves").unlockedBy(getHasName(leafPile), has(leafPile)), new ResourceLocation(Woodworks.MOD_ID, ForgeRegistries.BLOCKS.getKey(leaves).getPath() + "_from_leaf_piles"));
 	}
 
 	public static ConfigValueCondition config(ForgeConfigSpec.ConfigValue<?> value, String key, boolean inverted) {
