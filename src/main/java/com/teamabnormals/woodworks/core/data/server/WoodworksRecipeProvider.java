@@ -83,7 +83,7 @@ public class WoodworksRecipeProvider extends RecipeProvider implements IConditio
 		sawmillRecipes(consumer, BlockFamilies.DARK_OAK_PLANKS, ItemTags.DARK_OAK_LOGS, DARK_OAK_BOARDS.get(), DARK_OAK_LADDER.get());
 		sawmillRecipes(consumer, BlockFamilies.MANGROVE_PLANKS, ItemTags.MANGROVE_LOGS, MANGROVE_BOARDS.get(), MANGROVE_LADDER.get());
 		sawmillRecipes(consumer, BlockFamilies.CHERRY_PLANKS, ItemTags.CHERRY_LOGS, CHERRY_BOARDS.get(), CHERRY_LADDER.get());
-		sawmillRecipes(consumer, BlockFamilies.BAMBOO_PLANKS, null, null, BAMBOO_LADDER.get());
+		sawmillRecipes(consumer, BlockFamilies.BAMBOO_PLANKS, null, Blocks.BAMBOO_MOSAIC, BAMBOO_LADDER.get());
 		sawmillRecipes(consumer, BlockFamilies.CRIMSON_PLANKS, ItemTags.CRIMSON_STEMS, CRIMSON_BOARDS.get(), CRIMSON_LADDER.get());
 		sawmillRecipes(consumer, BlockFamilies.WARPED_PLANKS, ItemTags.WARPED_STEMS, WARPED_BOARDS.get(), WARPED_LADDER.get());
 	}
@@ -106,13 +106,15 @@ public class WoodworksRecipeProvider extends RecipeProvider implements IConditio
 	}
 
 	public static void sawmillRecipes(Consumer<FinishedRecipe> consumer, BlockFamily family, TagKey<Item> logs, Block boards, Block ladder) {
+		sawmillRecipes(consumer, family, logs, boards, ladder, false);
+	}
+
+	public static void sawmillRecipes(Consumer<FinishedRecipe> consumer, BlockFamily family, TagKey<Item> logs, Block boards, Block ladder, boolean compat) {
 		Block planks = family.getBaseBlock();
 		Block button = family.get(BlockFamily.Variant.BUTTON);
 		Block door = family.get(BlockFamily.Variant.DOOR);
 		Block fence = family.get(BlockFamily.Variant.FENCE);
-		if (fence == null) fence = family.get(BlockFamily.Variant.CUSTOM_FENCE);
 		Block fenceGate = family.get(BlockFamily.Variant.FENCE_GATE);
-		if (fenceGate == null) fenceGate = family.get(BlockFamily.Variant.CUSTOM_FENCE_GATE);
 		Block pressurePlate = family.get(BlockFamily.Variant.PRESSURE_PLATE);
 		Block sign = family.get(BlockFamily.Variant.SIGN);
 		Block slab = family.get(BlockFamily.Variant.SLAB);
