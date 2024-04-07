@@ -24,10 +24,11 @@ import static com.teamabnormals.woodworks.core.registry.WoodworksBlocks.*;
 public class WoodworksBlockStateProvider extends BlockStateProvider {
 	public static final String[] DEFAULT_BOOKSHELF_POSITIONS = new String[]{"top_left", "top_mid", "top_right", "bottom_left", "bottom_mid", "bottom_right"};
 	public static final String[] ALTERNATE_BOOKSHELF_POSITIONS = new String[]{"top_left", "top_right", "mid_left", "mid_right", "bottom_left", "bottom_right"};
+	public static final String[] BOTTOM_BOOKSHELF_POSITIONS = new String[]{"top_left", "top_right", "bottom_left", "bottom_mid_left", "bottom_mid_right", "bottom_right"};
 	public static final String[] CHERRY_BOOKSHELF_POSITIONS = new String[]{"far_left", "mid_left", "top_mid", "bottom_mid", "mid_right", "far_right"};
 
-	public WoodworksBlockStateProvider(PackOutput output, ExistingFileHelper fileHelper) {
-		super(output, Woodworks.MOD_ID, fileHelper);
+	public WoodworksBlockStateProvider(PackOutput output, ExistingFileHelper helper) {
+		super(output, Woodworks.MOD_ID, helper);
 	}
 
 	@Override
@@ -113,11 +114,11 @@ public class WoodworksBlockStateProvider extends BlockStateProvider {
 	}
 
 	private void generatedItem(ItemLike item, String type) {
-		generatedItem(item, item, type);
+		this.generatedItem(item, item, type);
 	}
 
 	private void generatedItem(ItemLike item, ItemLike texture, String type) {
-		itemModels().withExistingParent(ForgeRegistries.ITEMS.getKey(item.asItem()).getPath(), "item/generated").texture("layer0", new ResourceLocation(ForgeRegistries.ITEMS.getKey(texture.asItem()).getNamespace(), type + "/" + ForgeRegistries.ITEMS.getKey(texture.asItem()).getPath()));
+		this.itemModels().withExistingParent(ForgeRegistries.ITEMS.getKey(item.asItem()).getPath(), "item/generated").texture("layer0", new ResourceLocation(ForgeRegistries.ITEMS.getKey(texture.asItem()).getNamespace(), type + "/" + ForgeRegistries.ITEMS.getKey(texture.asItem()).getPath()));
 	}
 
 	public void sawmillBlock(Block sawmill) {
@@ -219,15 +220,15 @@ public class WoodworksBlockStateProvider extends BlockStateProvider {
 		return this.models().getBuilder(name(block)).texture("particle", texture);
 	}
 
-	private String name(Block block) {
+	public String name(Block block) {
 		return ForgeRegistries.BLOCKS.getKey(block).getPath();
 	}
 
-	private ResourceLocation prefix(String prefix, ResourceLocation rl) {
+	public ResourceLocation prefix(String prefix, ResourceLocation rl) {
 		return new ResourceLocation(rl.getNamespace(), prefix + rl.getPath());
 	}
 
-	private ResourceLocation suffix(ResourceLocation rl, String suffix) {
+	public ResourceLocation suffix(ResourceLocation rl, String suffix) {
 		return new ResourceLocation(rl.getNamespace(), rl.getPath() + suffix);
 	}
 }

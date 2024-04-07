@@ -2,8 +2,6 @@ package com.teamabnormals.woodworks.core.data.server.tags;
 
 import com.teamabnormals.woodworks.core.Woodworks;
 import com.teamabnormals.woodworks.core.other.tags.WoodworksBlockTags;
-import com.teamabnormals.woodworks.core.other.tags.WoodworksItemTags;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -21,12 +19,12 @@ import static com.teamabnormals.woodworks.core.registry.WoodworksBlocks.*;
 
 public class WoodworksItemTagsProvider extends ItemTagsProvider {
 
-	public WoodworksItemTagsProvider(PackOutput output, CompletableFuture<Provider> lookupProvider, CompletableFuture<TagsProvider.TagLookup<Block>> tagLookup, ExistingFileHelper fileHelper) {
-		super(output, lookupProvider, tagLookup, Woodworks.MOD_ID, fileHelper);
+	public WoodworksItemTagsProvider(PackOutput output, CompletableFuture<Provider> provider, CompletableFuture<TagsProvider.TagLookup<Block>> tagLookup, ExistingFileHelper helper) {
+		super(output, provider, tagLookup, Woodworks.MOD_ID, helper);
 	}
 
 	@Override
-	protected void addTags(HolderLookup.Provider provider) {
+	protected void addTags(Provider provider) {
 		this.copy(WoodworksBlockTags.WOODEN_BOARDS, WOODEN_BOARDS);
 		this.copy(WoodworksBlockTags.WOODEN_CHESTS, WOODEN_CHESTS);
 		this.copy(WoodworksBlockTags.WOODEN_TRAPPED_CHESTS, WOODEN_TRAPPED_CHESTS);
