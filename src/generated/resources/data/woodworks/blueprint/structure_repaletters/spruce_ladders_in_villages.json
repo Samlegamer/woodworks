@@ -16,15 +16,14 @@
           },
           {
             "type": "woodworks:config",
-            "value": "wooden_ladders_in_structures"
+            "value": "wooden_ladders_in_villages"
           }
         ]
       }
     ],
     "value": [
       "minecraft:village_taiga",
-      "minecraft:village_snowy",
-      "minecraft:igloo"
+      "minecraft:village_snowy"
     ]
   }
 }

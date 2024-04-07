@@ -2,7 +2,7 @@
   "repaletter": {
     "type": "blueprint:simple",
     "replaces_block": "minecraft:chest",
-    "replaces_with": "woodworks:dark_oak_chest"
+    "replaces_with": "woodworks:spruce_chest"
   },
   "structures": {
     "type": "blueprint:conditional",
@@ -16,14 +16,14 @@
           },
           {
             "type": "woodworks:config",
-            "value": "wooden_chests_in_structures"
+            "value": "wooden_chests_in_villages"
           }
         ]
       }
     ],
     "value": [
-      "minecraft:pillager_outpost",
-      "minecraft:mansion"
+      "minecraft:village_taiga",
+      "minecraft:village_snowy"
     ]
   }
 }

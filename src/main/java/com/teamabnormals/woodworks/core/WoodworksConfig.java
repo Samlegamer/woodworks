@@ -23,12 +23,12 @@ public class WoodworksConfig {
 		@ConfigKey("leaf_piles")
 		public final BooleanValue leafPiles;
 
-		@ConfigKey("wooden_bookshelves_in_structures")
-		public final BooleanValue woodenBookshelvesInStructures;
-		@ConfigKey("wooden_ladders_in_structures")
-		public final BooleanValue woodenLaddersInStructures;
-		@ConfigKey("wooden_chests_in_structures")
-		public final BooleanValue woodenChestsInStructures;
+		@ConfigKey("wooden_bookshelves_in_villages")
+		public final BooleanValue woodenBookshelvesInVillages;
+		@ConfigKey("wooden_ladders_in_villages")
+		public final BooleanValue woodenLaddersInVillages;
+		@ConfigKey("wooden_chests_in_villages")
+		public final BooleanValue woodenChestsInVillages;
 
 		public Common(ForgeConfigSpec.Builder builder) {
 			builder.push("blocks");
@@ -41,9 +41,9 @@ public class WoodworksConfig {
 			this.leafPiles = builder.define("Leaf piles", true);
 			builder.pop();
 			builder.push("generation");
-			this.woodenBookshelvesInStructures = builder.comment("If variant bookshelves replace bookshelves in certain structures").define("Wooden bookshelves in structures", true);
-			this.woodenLaddersInStructures = builder.comment("If variant ladders replace ladders in certain structures").define("Wooden ladders in structures", true);
-			this.woodenChestsInStructures = builder.comment("If variant chests replace chests in certain structures").define("Wooden chests in structres", true);
+			this.woodenBookshelvesInVillages = builder.comment("If variant bookshelves replace bookshelves in Villages").define("Wooden bookshelves in Villages", true);
+			this.woodenLaddersInVillages = builder.comment("If variant ladders replace ladders in Villages").define("Wooden ladders in Villages", true);
+			this.woodenChestsInVillages = builder.comment("If variant chests replace chests in Villages").define("Wooden chests in Villages", true);
 			builder.pop();
 		}
 	}

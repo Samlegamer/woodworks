@@ -1,8 +1,8 @@
 {
   "repaletter": {
     "type": "blueprint:simple",
-    "replaces_block": "minecraft:ladder",
-    "replaces_with": "woodworks:dark_oak_ladder"
+    "replaces_block": "minecraft:chest",
+    "replaces_with": "woodworks:oak_chest"
   },
   "structures": {
     "type": "blueprint:conditional",
@@ -12,15 +12,15 @@
         "values": [
           {
             "type": "woodworks:config",
-            "value": "wooden_ladders"
+            "value": "wooden_chests"
           },
           {
             "type": "woodworks:config",
-            "value": "wooden_ladders_in_structures"
+            "value": "wooden_chests_in_villages"
           }
         ]
       }
     ],
-    "value": "minecraft:ancient_city"
+    "value": "minecraft:village_plains"
   }
 }

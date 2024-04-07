@@ -1,8 +1,8 @@
 {
   "repaletter": {
     "type": "blueprint:simple",
-    "replaces_block": "minecraft:chest",
-    "replaces_with": "woodworks:jungle_chest"
+    "replaces_block": "minecraft:bookshelf",
+    "replaces_with": "woodworks:acacia_bookshelf"
   },
   "structures": {
     "type": "blueprint:conditional",
@@ -12,19 +12,15 @@
         "values": [
           {
             "type": "woodworks:config",
-            "value": "wooden_chests"
+            "value": "wooden_bookshelves"
           },
           {
             "type": "woodworks:config",
-            "value": "wooden_chests_in_structures"
+            "value": "wooden_bookshelves_in_villages"
           }
         ]
       }
     ],
-    "value": [
-      "minecraft:village_desert",
-      "minecraft:jungle_pyramid",
-      "minecraft:desert_pyramid"
-    ]
+    "value": "minecraft:village_savanna"
   }
 }

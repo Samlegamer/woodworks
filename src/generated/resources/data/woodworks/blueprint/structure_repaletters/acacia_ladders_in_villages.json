@@ -1,8 +1,8 @@
 {
   "repaletter": {
     "type": "blueprint:simple",
-    "replaces_block": "minecraft:chest",
-    "replaces_with": "woodworks:spruce_chest"
+    "replaces_block": "minecraft:ladder",
+    "replaces_with": "woodworks:acacia_ladder"
   },
   "structures": {
     "type": "blueprint:conditional",
@@ -12,19 +12,15 @@
         "values": [
           {
             "type": "woodworks:config",
-            "value": "wooden_chests"
+            "value": "wooden_ladders"
           },
           {
             "type": "woodworks:config",
-            "value": "wooden_chests_in_structures"
+            "value": "wooden_ladders_in_villages"
           }
         ]
       }
     ],
-    "value": [
-      "minecraft:village_taiga",
-      "minecraft:village_snowy",
-      "minecraft:igloo"
-    ]
+    "value": "minecraft:village_savanna"
   }
 }
