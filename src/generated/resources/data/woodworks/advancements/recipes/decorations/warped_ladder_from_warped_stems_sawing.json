@@ -36,7 +36,7 @@
       },
       "conditions": [
         {
-          "type": "forge:and",
+          "type": "blueprint:and",
           "values": [
             {
               "type": "woodworks:config",
