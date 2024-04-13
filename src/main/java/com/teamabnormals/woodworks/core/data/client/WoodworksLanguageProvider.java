@@ -1,6 +1,7 @@
 package com.teamabnormals.woodworks.core.data.client;
 
 import com.teamabnormals.blueprint.common.block.LeafPileBlock;
+import com.teamabnormals.blueprint.core.data.client.BlueprintLanguageProvider;
 import com.teamabnormals.woodworks.common.block.SawmillBlock;
 import com.teamabnormals.woodworks.common.block.entity.ClosetBlockEntity;
 import com.teamabnormals.woodworks.core.Woodworks;
@@ -13,10 +14,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.LanguageProvider;
 import org.apache.commons.lang3.text.WordUtils;
 
-public class WoodworksLanguageProvider extends LanguageProvider {
+public class WoodworksLanguageProvider extends BlueprintLanguageProvider {
 
 	public WoodworksLanguageProvider(PackOutput output) {
-		super(output, Woodworks.MOD_ID, "en_us");
+		super(output, Woodworks.MOD_ID);
 	}
 
 	@Override
@@ -46,13 +47,5 @@ public class WoodworksLanguageProvider extends LanguageProvider {
 
 	private void subtitle(String key, String subtitle) {
 		this.add(Util.makeDescriptionId("subtitles", new ResourceLocation(Woodworks.MOD_ID, key)), subtitle);
-	}
-
-	private String format(ResourceLocation registryName) {
-		return format(registryName.getPath());
-	}
-
-	private String format(String name) {
-		return WordUtils.capitalizeFully(name.replace("_", " "));
 	}
 }

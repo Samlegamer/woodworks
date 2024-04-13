@@ -34,7 +34,7 @@ license = "https://github.com/team-abnormals/woodworks/blob/main/LICENSE.txt"
 [[dependencies.woodworks]]
     modId = "blueprint"
     mandatory = true
-    versionRange = "[7.0.3,)"
+    versionRange = "[7.1.0,)"
     ordering = "AFTER"
     side = "BOTH"
 
