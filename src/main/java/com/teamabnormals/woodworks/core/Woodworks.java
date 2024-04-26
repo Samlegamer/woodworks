@@ -15,6 +15,7 @@ import com.teamabnormals.woodworks.core.data.server.tags.WoodworksBlockTagsProvi
 import com.teamabnormals.woodworks.core.data.server.tags.WoodworksItemTagsProvider;
 import com.teamabnormals.woodworks.core.other.WoodworksClientCompat;
 import com.teamabnormals.woodworks.core.other.WoodworksCompat;
+import com.teamabnormals.woodworks.core.other.WoodworksDataProcessors;
 import com.teamabnormals.woodworks.core.other.WoodworksModelLayers;
 import com.teamabnormals.woodworks.core.registry.WoodworksBlockEntityTypes;
 import com.teamabnormals.woodworks.core.registry.WoodworksBlocks;
@@ -54,6 +55,8 @@ public class Woodworks {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		ModLoadingContext context = ModLoadingContext.get();
 		MinecraftForge.EVENT_BUS.register(this);
+
+		WoodworksDataProcessors.registerTrackedData();
 
 		REGISTRY_HELPER.register(bus);
 		WoodworksLootConditions.LOOT_CONDITION_TYPES.register(bus);
